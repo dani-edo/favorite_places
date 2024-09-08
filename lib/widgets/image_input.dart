@@ -34,7 +34,15 @@ class _ImageInputState extends State<ImageInput> {
     );
 
     if (_selectedImage != null) {
-      content = Image.file(_selectedImage!);
+      content = GestureDetector(
+        onTap: _takePicture,
+        child: Image.file(
+          _selectedImage!,
+          fit: BoxFit.cover,
+          height: double.infinity,
+          width: double.infinity,
+        ),
+      );
     }
 
     return Container(
